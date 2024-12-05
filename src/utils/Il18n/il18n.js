@@ -10,7 +10,15 @@ import uzHero from "./uz/hero";
 import enCrd from "./en/crd";
 import ruCrd from "./ru/crd";
 import uzCrd from "./uz/crd";
-
+import enteacher from "./en/teacher";
+import ruteacher from "./ru/teacher";
+import uzteacher from "./uz/teacher";
+import enContact from "./en/contact";
+import uzContact from "./uz/contact";
+import ruContact from "./ru/contact";
+import enModal from "./en/modal";
+import ruModal from "./ru/modal";
+import uzModal from "./uz/modal";
 
 
 
@@ -21,16 +29,25 @@ const resources = {
         layout: enLayout,
         hero: enHero,
         crd: enCrd,
+        teacher: enteacher,
+        contact: enContact,
+        modal: enModal
     },
     ru: {
         layout: ruLayout,
         hero: ruHero,
         crd: ruCrd,
+        teacher: ruteacher,
+        contact: ruContact,
+        modal: ruModal
     },
     uz: {
         layout: uzLayout,
         hero: uzHero,
         crd: uzCrd,
+        teacher: uzteacher,
+        contact: uzContact,
+        modal: uzModal
     },
 };
 
