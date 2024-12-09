@@ -4,7 +4,8 @@ const modal = {
     phoneNumber: "Ваш номер телефона",
     lessonLevel: "Уровень курса",
     send: "Отправка",
-    cancel: "Отмена"
+    cancel: "Отмена",
+    selectLevel: "Выберите уровень курса"
 }
 
 

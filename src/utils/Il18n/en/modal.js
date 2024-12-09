@@ -5,6 +5,7 @@ const modal = {
     lessonLevel: "Course level",
     send: "Send",
     cancel: "Cancel",
+    selectLevel: "Select a course level"
 }
 
 

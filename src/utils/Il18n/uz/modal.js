@@ -4,8 +4,8 @@ const modal = {
     phoneNumber: "Telefon raqamingiz",
     lessonLevel: "Kurs darajasi",
     send: "Jo'natish",
-    cancel: "Bekor qilish"
-
+    cancel: "Bekor qilish",
+    selectLevel: "Kurs darajasini tanlang"
 }
 
 
