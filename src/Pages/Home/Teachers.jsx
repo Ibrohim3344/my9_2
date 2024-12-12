@@ -6,7 +6,7 @@ const Teachers = () => {
     const { t } = useTranslation("teacher");
 
     return (
-        <section className=' py-[40px] bg-oq dark:bg-dakr'>
+        <section className=' py-[40px] bg-oq dark:bg-dakr' id='teacher'>
             <div className='container'>
                 <div className='flex flex-col text-center items-center gap-[20px]'>
                     <h1 className='md:text-4xl text-2xl text-qora dark:text-oq font-semibold'>{t("make")}</h1>

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { useTranslation } from 'react-i18next';
+import '../style.css'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Modal = ({ onClose, onSubmit }) => {
     const [formData, setFormData] = useState({
@@ -24,14 +27,13 @@ const Modal = ({ onClose, onSubmit }) => {
 
         localStorage.setItem("application", JSON.stringify(formData));
 
-        alert("Zayavka muvaffaqiyatli saqlandi!");
+        toast.success(t("Application Saved"));
         onSubmit();
         onClose();
     };
 
     const { t } = useTranslation("modal");
 
-   
     useEffect(() => {
         document.body.style.overflow = "hidden";
         return () => {
@@ -40,8 +42,8 @@ const Modal = ({ onClose, onSubmit }) => {
     }, []);
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-100 flex justify-center items-center z-50">
-            <div className="bg-white p-6 rounded-md shadow-md w-96 relative">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white p-6 rounded-md shadow-md w-96 relative modal-blur">
                 <h2 className="text-xl font-bold mb-4">{t("zayav")}</h2>
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                     <div>
@@ -61,8 +63,17 @@ const Modal = ({ onClose, onSubmit }) => {
                             country={'uz'}
                             value={formData.phone}
                             onChange={handlePhoneChange}
-                            inputClass="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
-                            buttonClass="bg-gray-200"
+                            containerClass="w-full"
+                            inputStyle={{
+                                width: "100%",
+                                padding: "0.5rem",
+                                border: "1px solid #d1d5db",
+                                borderRadius: "0.375rem",
+                            }}
+                            buttonStyle={{
+                                backgroundColor: "#e5e7eb",
+                                borderRadius: "0.375rem 0 0 0.375rem",
+                            }}
                             enableAreaCodes={true}
                             enableSearch={true}
                             required
@@ -102,6 +113,7 @@ const Modal = ({ onClose, onSubmit }) => {
                     </div>
                 </form>
             </div>
+            <ToastContainer />
         </div>
     );
 };

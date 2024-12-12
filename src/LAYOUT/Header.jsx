@@ -19,10 +19,10 @@ const Header = () => {
                 </div>
 
                 <ul className='lg:flex hidden flex-row items-center gap-[30px] text-lg dark:text-oq text-qora'>
-                    <li className='cursor-pointer hover:text-gren duration-300'>{t("Teacher")}</li>
+                    <a href="#teacher"><li className='cursor-pointer hover:text-gren duration-300'>{t("Teacher")}</li></a>
                     <li className='cursor-pointer hover:text-gren duration-300'>{t("Courses")}</li>
                     <li className='cursor-pointer hover:text-gren duration-300'>{t("Result")}</li>
-                    <li className='cursor-pointer hover:text-gren duration-300'>{t("Contact")}</li>
+                    <a href="#contact"><li className='cursor-pointer hover:text-gren duration-300'>{t("Contact")}</li></a>
                 </ul>
 
                 <div className='flex flex-row items-center sm:gap-[20px] gap-[5px]'>
@@ -32,7 +32,8 @@ const Header = () => {
                     </button>
                     <PhoneAnimation />
                     <LanguageSwitcher />
-                    <a href="tel:998955555539"><Button /></a>
+                    <Button />
+
                     <DrawerDefault />
                 </div>
             </div>

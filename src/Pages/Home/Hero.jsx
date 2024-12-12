@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import Btn from '../../Btn';
+import Btn from '../../Btn'; // eski ko'rinishdagi Btn
 import Modal from '../../utils/Modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Hero = () => {
     const { t } = useTranslation("hero");
@@ -10,7 +12,6 @@ const Hero = () => {
     const [hasApplication, setHasApplication] = useState(false);
 
     useEffect(() => {
-    
         const application = localStorage.getItem("application");
         if (application) {
             setHasApplication(true);
@@ -28,13 +29,14 @@ const Hero = () => {
     const cancelApplication = () => {
         localStorage.removeItem("application");
         setHasApplication(false);
-        alert("Sizning zayavkangiz bekor qilindi!");
-        setIsCancelModalOpen(false); 
+        toast.success(t("Application Cancelled"));
+        setIsCancelModalOpen(false);
     };
 
     const handleModalSubmit = () => {
         setIsModalOpen(false);
         setHasApplication(true);
+        toast.success(t("Application Submitted"));
     };
 
     return (
@@ -43,7 +45,7 @@ const Hero = () => {
                 <div className="flex flex-col lg:items-start items-center lg:text-start text-center gap-[30px]">
                     <h1 className="text-qora dark:text-oq sm:text-6xl text-3xl font-bold">{t("English")}</h1>
                     <span className="sm:text-xl text-lg text-gray-700">{t("Teach")}</span>
-                    <Btn text={t(hasApplication ? "cancelOrView" : "Button")} onClick={handleButtonClick} />
+                    <Btn text={t("Button")} onClick={handleButtonClick} />
                 </div>
                 <img
                     src="https://my9-learning-center.vercel.app/hero_img.svg"
@@ -51,7 +53,6 @@ const Hero = () => {
                     className="lg:w-[50%] w-[100%]"
                 />
             </div>
-
 
             {isModalOpen && (
                 <Modal onClose={() => setIsModalOpen(false)} onSubmit={handleModalSubmit} />
@@ -71,25 +72,13 @@ const Hero = () => {
                             <strong>{t("lessonLevel")}:</strong> {JSON.parse(localStorage.getItem("application"))?.category}
                         </p>
                         <div className="flex justify-end gap-4 mt-4">
-                            <button
-                                onClick={cancelApplication}
-                                className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600"
-                            >
-                                {t("cancelRequest")}
-                            </button>
-                            <button
-                                onClick={() => {
-                                    setIsCancelModalOpen(false);
-                                    setIsModalOpen(true);
-                                }}
-                                className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600"
-                            >
-                                {t("resubmitRequest")}
-                            </button>
+                            <Btn text={t("cancel")} onClick={() => setIsCancelModalOpen(false)} />
                         </div>
                     </div>
                 </div>
             )}
+
+            <ToastContainer />
         </section>
     );
 };
