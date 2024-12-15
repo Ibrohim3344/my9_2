@@ -19,8 +19,9 @@ import ruContact from "./ru/contact";
 import enModal from "./en/modal";
 import ruModal from "./ru/modal";
 import uzModal from "./uz/modal";
-
-
+import enResult from "./en/result";
+import ruResult from "./ru/result";
+import uzResult from "./uz/result";
 
 
 
@@ -31,7 +32,8 @@ const resources = {
         crd: enCrd,
         teacher: enteacher,
         contact: enContact,
-        modal: enModal
+        modal: enModal,
+        result: enResult
     },
     ru: {
         layout: ruLayout,
@@ -39,7 +41,8 @@ const resources = {
         crd: ruCrd,
         teacher: ruteacher,
         contact: ruContact,
-        modal: ruModal
+        modal: ruModal,
+        result: ruResult
     },
     uz: {
         layout: uzLayout,
@@ -47,7 +50,8 @@ const resources = {
         crd: uzCrd,
         teacher: uzteacher,
         contact: uzContact,
-        modal: uzModal
+        modal: uzModal,
+        result: uzResult
     },
 };
 

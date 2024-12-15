@@ -21,7 +21,7 @@ const Header = () => {
                 <ul className='lg:flex hidden flex-row items-center gap-[30px] text-lg dark:text-oq text-qora'>
                     <a href="#teacher"><li className='cursor-pointer hover:text-gren duration-300'>{t("Teacher")}</li></a>
                     <li className='cursor-pointer hover:text-gren duration-300'>{t("Courses")}</li>
-                    <li className='cursor-pointer hover:text-gren duration-300'>{t("Result")}</li>
+                    <a href="#result"><li className='cursor-pointer hover:text-gren duration-300'>{t("Result")}</li></a>
                     <a href="#contact"><li className='cursor-pointer hover:text-gren duration-300'>{t("Contact")}</li></a>
                 </ul>
 
