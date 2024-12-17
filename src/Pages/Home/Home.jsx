@@ -5,6 +5,7 @@ import Teachers from './Teachers'
 import Contact from './Contact'
 import Result from './Result'
 import Coments from './Comments'
+import News from './News'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Card />
       <Teachers />
       <Contact />
+      <News />
       <Result />
       <Coments />
     </main>

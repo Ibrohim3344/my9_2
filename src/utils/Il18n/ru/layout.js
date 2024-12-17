@@ -3,6 +3,8 @@ const layout = {
     Courses: "Курсы",
     Result: "Результат",
     Contact: "Контакт",
+    News: "Новости",
+
 }
 
 

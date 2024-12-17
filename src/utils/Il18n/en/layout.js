@@ -3,6 +3,7 @@ const layout = {
     Courses: "Courses",
     Result: "Result",
     Contact: "Contact",
+    News: "News",
 }
 
 
