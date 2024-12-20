@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import Btn from '../../Btn'; // eski ko'rinishdagi Btn
+import Btn from '../../Btn'; 
 import Modal from '../../utils/Modal';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -29,14 +29,33 @@ const Hero = () => {
     const cancelApplication = () => {
         localStorage.removeItem("application");
         setHasApplication(false);
-        toast.success(t("Application Cancelled"));
+
+        // Toast xabar chiqarish
+        toast.success(t("Application Cancelled"), {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        });
+
         setIsCancelModalOpen(false);
     };
 
     const handleModalSubmit = () => {
         setIsModalOpen(false);
         setHasApplication(true);
-        toast.success(t("Application Submitted"));
+
+        // Toast xabar chiqarish
+        toast.success(t("Application Submitted"), {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        });
     };
 
     return (
@@ -72,7 +91,8 @@ const Hero = () => {
                             <strong>{t("lessonLevel")}:</strong> {JSON.parse(localStorage.getItem("application"))?.category}
                         </p>
                         <div className="flex justify-end gap-4 mt-4">
-                            <Btn text={t("cancel")} onClick={() => setIsCancelModalOpen(false)} />
+                            <Btn text={t("cancel")} onClick={cancelApplication} />
+                            <Btn text={t("close")} onClick={() => setIsCancelModalOpen(false)} />
                         </div>
                     </div>
                 </div>

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 import { useTranslation } from 'react-i18next';
-import '../style.css'
-import { ToastContainer, toast } from 'react-toastify';
+import '../style.css';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Modal = ({ onClose, onSubmit }) => {
@@ -12,6 +12,8 @@ const Modal = ({ onClose, onSubmit }) => {
         phone: "",
         category: ""
     });
+
+    const { t } = useTranslation("modal");
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -27,12 +29,19 @@ const Modal = ({ onClose, onSubmit }) => {
 
         localStorage.setItem("application", JSON.stringify(formData));
 
-        toast.success(t("Application Saved"));
-        onSubmit();
-        onClose();
-    };
+        // Toast xabar yuboriladi
+        toast.success(t("Application Saved"), {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+        });
 
-    const { t } = useTranslation("modal");
+        onSubmit(); // Ota komponentga bildirish
+        onClose(); // Modalni yopish
+    };
 
     useEffect(() => {
         document.body.style.overflow = "hidden";
@@ -60,7 +69,7 @@ const Modal = ({ onClose, onSubmit }) => {
                     <div>
                         <label className="block text-sm font-medium">{t("phoneNumber")}</label>
                         <PhoneInput
-                            country={'uz'}
+                            country="uz"
                             value={formData.phone}
                             onChange={handlePhoneChange}
                             containerClass="w-full"
@@ -113,7 +122,6 @@ const Modal = ({ onClose, onSubmit }) => {
                     </div>
                 </form>
             </div>
-            <ToastContainer />
         </div>
     );
 };
