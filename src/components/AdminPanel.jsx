@@ -20,7 +20,7 @@ const AdminPanel = () => {
             image: image ? URL.createObjectURL(image) : "https://via.placeholder.com/150",
         };
 
-        // API'ga POST qilish (o'rnak uchun)
+    
         fetch("https://jsonplaceholder.typicode.com/posts", {
             method: "POST",
             headers: {

@@ -22,11 +22,11 @@ const News = () => {
     }, []);
 
     const handleViewMore = () => {
-        navigate("/news"); // Barcha yangiliklar sahifasiga o'tadi
+        navigate("/news"); 
     };
 
     const handleViewDetails = (photoId) => {
-        navigate(`/news/${photoId}`); // Alohida yangilik sahifasiga o'tadi
+        navigate(`/news/${photoId}`);
     };
 
     if (loading) {
